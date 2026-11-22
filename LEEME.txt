@@ -1,0 +1,73 @@
+ALERTAQUEBRADA · Panel operativo web
+=====================================
+Curso: [nombre del curso] · UPC
+Ciclo: [ciclo]
+Docente: [nombre]
+Integrantes:
+ - [Nombre completo] ([código])
+ - [Nombre completo] ([código])
+
+DESCRIPCIÓN
+Landing Page de una sola página para el sistema AlertaQuebrada: una portada
+que explica el problema y las funciones, y un panel operativo para el COE,
+líderes vecinales y brigadistas de Quebrada Norte.
+Permite consultar el estado de las manzanas, coordinar evacuaciones, asignar
+apoyo y validar reportes de vías bloqueadas o zonas peligrosas.
+Es una simulación: todos los datos son ilustrativos y se guardan en el
+navegador (localStorage). No se envían SMS, llamadas ni datos reales.
+
+CÓMO ABRIRLO
+1. Abrir la carpeta en Visual Studio Code.
+2. Abrir index.html con Live Server (clic derecho > Open with Live Server).
+3. En la sección "Panel", ingresar con la cuenta demo:
+   Correo: lucia.rojas@coe.org
+   Contraseña: Coe12345
+Enlace publicado: [enlace de GitHub Pages]
+
+ESTRUCTURA
+ index.html          Una sola página: portada, el problema, funciones y panel
+                     (login y crear cuenta, y 6 vistas con pestañas:
+                     Dashboard, Mapa, Evacuación, Solicitudes, Reportes y
+                     Administración)
+ css/estilos.css     Estilos de toda la página y adaptación responsive
+ js/app.js           Validaciones, pestañas e interacciones
+ iconos/             Logo de AlertaQuebrada
+ imagenes/           Recursos gráficos
+ LEEME.txt           Este archivo
+ FUENTES.txt         Créditos de recursos
+
+TECNOLOGÍAS
+HTML, CSS y JavaScript (sin frameworks). Tipografía Inter.
+
+HISTORIAS DE USUARIO IMPLEMENTADAS (30)
+ Dashboard (7):      HU-001, 009, 019, 027, 032, 033, 046
+ Mapa (7):           HU-002, 003, 008, 014, 016, 029, 045
+ Evacuación (6):     HU-006, 013, 015, 021, 022, 043
+ Solicitudes (5):    HU-007, 020, 030, 031, 044
+ Reportes (2):       HU-023, 028
+ Administración (3): HU-004, 025, 048
+
+ADAPTACIÓN RESPONSIVE
+El mismo HTML, CSS y JavaScript se adapta a Desktop, Tablet y Mobile con la
+etiqueta viewport y reglas @media (puntos de quiebre en 900, 800, 700, 600 y
+480 px). En celular, el menú del panel se desliza de lado, los botones ocupan
+todo el ancho y las tablas se deslizan dentro de su caja.
+
+ACCESIBILIDAD
+ - Estructura semántica (header, nav, main, section, footer), idioma "es" y
+   enlace "Saltar al contenido".
+ - Foco visible y navegación completa con teclado (Tab, Enter, Esc).
+ - Cada campo de formulario tiene su etiqueta y los errores se anuncian
+   debajo del campo.
+ - Contraste de color revisado según WCAG AA.
+ - Auditoría con Lighthouse: puntaje de accesibilidad 100 en móvil y escritorio.
+
+LIMITACIONES
+ - La HU-004 (SMS sin internet) se representa como un parámetro configurable;
+   no envía mensajes reales.
+ - La HU-016 (acceso sin conexión) guarda la ruta en el navegador como
+   demostración.
+ - El número del COEL y los de los líderes son de ejemplo.
+ - El rol se elige al crear la cuenta; en un sistema real lo asignaría el COE.
+ - La accesibilidad se revisó con Lighthouse y con teclado; no se probó con
+   lector de pantalla.

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- PASO 1: permite que el navegador use el ancho real del celular. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlertaQuebrada · Coordinación vecinal y respuesta de emergencia</title>
+  <!-- PASO 2: conectar este HTML con el archivo CSS. -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="icon" type="image/png" href="iconos/alertaQuebrada.png">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<!-- PASO 3: ahora el menú baja a cada sección de ESTA misma página con enlaces #id. -->
+<header class="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="#inicio"><img src="iconos/alertaQuebrada.png" alt="" width="42" height="42">AlertaQuebrada</a>
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#problema">El problema</a></li>
+        <li><a href="#funciones">Funciones</a></li>
+        <li><a href="#panel">Panel</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <!-- PASO 4: portada. -->
+  <section id="inicio" class="hero contenedor dos-columnas" aria-labelledby="titulo">
+    <div>
+      <p class="etiqueta">Alerta temprana ante huaicos</p>
+      <h1 id="titulo">Coordinación vecinal y respuesta de emergencia</h1>
+      <p>Consulta el estado de las manzanas, coordina evacuaciones y asigna apoyo desde un solo panel operativo.</p>
+      <a class="boton" href="#panel">Ingresar al panel</a>
+      <a class="enlace" href="#problema">Conocer el problema</a>
+    </div>
+    <div>
+      <aside class="tarjeta" aria-label="Resumen del panel">
+        <p class="etiqueta">Quebrada Norte · Sector A</p>
+        <h2>Un panel para tres roles</h2>
+        <p><strong>COE:</strong> coordina y configura la operación.</p>
+        <p><strong>Líderes vecinales:</strong> confirman la evacuación de su manzana.</p>
+        <p><strong>Brigadistas:</strong> reciben tareas y atienden solicitudes.</p>
+        <p class="nota">Simulación con datos ilustrativos.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PASO 5: el problema. Ajusta el texto con lo que dice tu informe. -->
+  <section id="problema" class="seccion fondo" aria-labelledby="problema-titulo">
+    <div class="contenedor dos-columnas">
+      <div>
+        <p class="etiqueta">El problema</p>
+        <h2 id="problema-titulo">Cuando sube la quebrada, la información llega tarde y confusa</h2>
+        <p>Las familias reciben avisos poco claros, no saben por dónde salir y quienes coordinan no tienen un solo lugar para ver quién ya evacuó y quién necesita ayuda.</p>
+      </div>
+      <ul class="lista-problema">
+        <li><strong>Alertas poco claras:</strong> el mensaje no dice qué hacer ni por dónde ir.</li>
+        <li><strong>Evacuación sin coordinación:</strong> nadie sabe qué manzanas ya salieron.</li>
+        <li><strong>Ayuda que llega tarde:</strong> las personas que no pueden salir solas quedan sin apoyo.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PASO 6: funciones. Cada tarjeta indica qué HU resuelve. -->
+  <section id="funciones" class="seccion contenedor" aria-labelledby="funciones-titulo">
+    <p class="etiqueta">Funciones clave</p>
+    <h2 id="funciones-titulo">Del aviso a la evacuación, en un solo panel</h2>
+    <div class="tarjetas">
+      <article class="tarjeta"><span class="numero">HU-001 · 002 · 033</span><h3>Alerta clara</h3><p>Aviso visual con la instrucción de evacuar, el nivel de riesgo y la ruta.</p></article>
+      <article class="tarjeta"><span class="numero">HU-003 · 008 · 016</span><h3>Ruta y punto seguro</h3><p>La salida recomendada por manzana, guardada para usarla sin conexión.</p></article>
+      <article class="tarjeta"><span class="numero">HU-006 · 013 · 022</span><h3>Evacuación hogar por hogar</h3><p>Se marca quién está en ruta y quién llegó a salvo.</p></article>
+      <article class="tarjeta"><span class="numero">HU-007 · 020 · 044</span><h3>Apoyo prioritario</h3><p>Solicitudes de ayuda y asignación de brigadas disponibles.</p></article>
+      <article class="tarjeta"><span class="numero">HU-023 · 028</span><h3>Reportes del territorio</h3><p>Vías bloqueadas y zonas peligrosas, validadas por el COE.</p></article>
+      <article class="tarjeta"><span class="numero">HU-004 · 025 · 048</span><h3>Respaldo y contactos</h3><p>SMS sin internet, contacto de emergencia y líder de cada zona.</p></article>
+    </div>
+  </section>
+
+  <!-- PASO 7: el panel. Sin sesión se ve el login; con sesión se ven las pestañas y las vistas. -->
+  <section id="panel" class="seccion fondo" aria-labelledby="panel-titulo">
+    <div class="contenedor">
+      <p class="etiqueta">Panel operativo</p>
+      <h2 id="panel-titulo">Ingresa datos</h2>
+
+      <!-- Sin sesión: login y crear cuenta. -->
+      <div id="zona-acceso" class="acceso">
+        <div class="pestanas" id="tabs-acceso">
+          <button type="button" id="tab-login" data-vista="login" aria-pressed="true">Iniciar sesión</button>
+          <button type="button" id="tab-registro" data-vista="registro" aria-pressed="false">Crear cuenta</button>
+        </div>
+
+        <form id="form-login" class="formulario" novalidate>
+          <label for="correo-login">Correo</label>
+          <input id="correo-login" type="email" autocomplete="username" value="lucia.rojas@coe.org">
+          <p class="error" id="error-correo-login" aria-live="polite"></p>
+
+          <label for="clave-login">Contraseña</label>
+          <input id="clave-login" type="password" autocomplete="current-password" value="Coe12345">
+          <p class="error" id="error-clave-login" aria-live="polite"></p>
+
+          <div><input id="mantener" type="checkbox" checked> <label for="mantener">Mantener sesión</label></div>
+          <button type="submit" class="boton">Ingresar al panel</button>
+          <p class="nota">Cuenta demo: lucia.rojas@coe.org · Coe12345</p>
+        </form>
+
+        <form id="form-registro" class="formulario" novalidate hidden>
+          <label for="nombre-reg">Nombre completo</label>
+          <input id="nombre-reg" type="text" autocomplete="name">
+          <p class="error" id="error-nombre-reg" aria-live="polite"></p>
+
+          <label for="rol-reg">Rol</label>
+          <select id="rol-reg"><option>Líder vecinal</option><option>Brigadista</option><option>COE</option></select>
+
+          <label for="correo-reg">Correo (coe.org, gmail.com u outlook.com)</label>
+          <input id="correo-reg" type="email" autocomplete="email">
+          <p class="error" id="error-correo-reg" aria-live="polite"></p>
+
+          <label for="clave-reg">Contraseña (8 o más, una mayúscula y un número)</label>
+          <input id="clave-reg" type="password" autocomplete="new-password">
+          <p class="error" id="error-clave-reg" aria-live="polite"></p>
+
+          <label for="clave2-reg">Repite la contraseña</label>
+          <input id="clave2-reg" type="password" autocomplete="new-password">
+          <p class="error" id="error-clave2-reg" aria-live="polite"></p>
+
+          <button type="submit" class="boton">Crear cuenta</button>
+        </form>
+      </div>
+
+      <!-- Con sesión: pestañas del panel. Cada vista se pega en el siguiente paso. -->
+      <div id="zona-panel" hidden>
+        <div class="pestanas" id="tabs-panel" role="group" aria-label="Secciones del panel">
+          <button type="button" data-vista="dashboard" aria-pressed="true">Dashboard</button>
+          <button type="button" data-vista="mapa" aria-pressed="false">Mapa</button>
+          <button type="button" data-vista="evacuacion" aria-pressed="false">Evacuación</button>
+          <button type="button" data-vista="solicitudes" aria-pressed="false">Solicitudes</button>
+          <button type="button" data-vista="reportes" aria-pressed="false">Reportes</button>
+          <button type="button" data-vista="administracion" aria-pressed="false">Administración</button>
+          <button type="button" id="cerrar-sesion">Cerrar sesión</button>
+        </div>
+
+        <section class="vista" id="vista-dashboard" aria-label="Dashboard">
+  <div class="panel-titulo">
+    <p class="etiqueta">Estado general</p>
+    <h2 class="titulo-vista">Dashboard</h2>
+    <p>Coordinación y prioridades de Quebrada Norte · Sector A</p>
+  </div>
+
+  <!-- Aviso de operación activa con las acciones rápidas (HU-032, 019, 046). -->
+  <section class="banner" aria-label="Operación activa">
+    <p><strong>Operación activa</strong> · Riesgo alto por aumento del nivel de la quebrada</p>
+    <div class="acciones">
+      <button type="button" class="boton" id="btn-alerta">Ver alerta</button>
+      <button type="button" class="boton secundario" id="btn-whatsapp">Compartir por WhatsApp</button>
+      <a class="boton secundario" href="tel:+5112345678">Llamar al COEL</a>
+    </div>
+  </section>
+
+  <!-- Indicadores. Por ahora son fijos. -->
+  <section class="kpis" aria-label="Indicadores">
+    <article class="kpi"><span>Manzanas en riesgo</span><strong>4</strong></article>
+    <article class="kpi"><span>Manzanas evacuadas</span><strong>2/6</strong></article>
+    <article class="kpi"><span>Solicitudes sin brigada</span><strong>4</strong></article>
+    <article class="kpi"><span>Vías bloqueadas</span><strong>2</strong></article>
+  </section>
+
+  <!-- Historial de alertas (HU-009) con confirmación de recepción (HU-027). -->
+  <section aria-labelledby="t-historial">
+    <h2 id="t-historial">Historial de alertas</h2>
+    <div class="tabla-caja">
+      <table>
+        <thead><tr><th>Hora</th><th>Evento</th><th>Ubicación</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>08:44</td><td>Nivel de quebrada</td><td>Paso Norte / A-03</td><td><span class="estado ok">Verificada</span></td></tr>
+          <tr><td>08:42</td><td>Solicitud de evacuación</td><td>H-014 / A-03</td><td><span class="estado aviso">Asignada</span></td></tr>
+          <tr><td>08:40</td><td>Alerta de evacuación enviada</td><td>A-03 y A-05</td><td><button type="button" class="boton chico" data-recibir>Confirmar recepción</button></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Alerta a pantalla completa (HU-033). Está oculta hasta que se pulsa "Ver alerta". -->
+  <div class="alerta-total" id="alerta-total" role="alertdialog" aria-modal="true" aria-labelledby="alerta-titulo" hidden>
+    <div class="alerta-texto">
+      <h2 id="alerta-titulo">RIESGO ALTO:<br>EVACÚA</h2>
+      <p>Sal por Calle Central hacia Escuela Norte</p>
+    </div>
+    <div class="alerta-botones">
+      <a class="alerta-btn detalle" href="#panel" data-ir="mapa">VER DETALLES</a>
+      <button type="button" class="alerta-btn cerrar" id="alerta-cerrar">CERRAR</button>
+    </div>
+  </div>
+</section>
+        <section class="vista" id="vista-mapa" aria-label="Mapa operativo" hidden>
+  <div class="panel-titulo">
+    <p class="etiqueta">Territorio</p>
+    <h2 class="titulo-vista">Mapa operativo</h2>
+    <p>Selecciona una manzana para ver su estado, la ruta y el apoyo cercano.</p>
+  </div>
+
+  <div class="mapa-layout">
+    <section aria-label="Manzanas">
+      <!-- Pestañas que cambian qué dato muestra cada manzana. -->
+      <div class="pestanas" id="pestanas-mapa">
+        <button type="button" data-pestana="zonas" aria-pressed="true">Zonas</button>
+        <button type="button" data-pestana="riesgos" aria-pressed="false">Riesgos</button>
+        <button type="button" data-pestana="brigadas" aria-pressed="false">Brigadas</button>
+      </div>
+      <p class="leyenda">Verde: evacuada · Ámbar: en proceso · Rojo: riesgo alto</p>
+      <!-- El JS dibuja aquí las 6 manzanas (HU-045). -->
+      <div class="mapa" id="mapa"></div>
+    </section>
+
+    <!-- Panel con el detalle de la manzana elegida. -->
+    <aside class="panel-lateral" aria-live="polite">
+      <h2 id="p-titulo">Manzana</h2>
+      <span class="estado" id="p-estado"></span>
+      <p id="p-resumen"></p>
+      <p class="mensaje" id="p-mensaje"></p>
+      <p><strong>Semáforo:</strong> <span id="p-semaforo"></span></p>
+      <p><strong>Ruta recomendada:</strong> Calle Central hacia el punto seguro</p>
+      <p><strong>Punto seguro:</strong> Escuela Norte (a 4 min a pie)</p>
+      <p><strong>Brigadas cerca:</strong> <span id="p-brigadas"></span></p>
+      <div class="panel-botones">
+        <a class="boton" href="#panel" id="ver-evacuacion" data-ir="evacuacion">Ver detalle de evacuación</a>
+        <button type="button" class="boton secundario" id="btn-offline">Guardar ruta sin conexión</button>
+      </div>
+    </aside>
+  </div>
+</section>
+        <section class="vista" id="vista-evacuacion" aria-label="Evacuación" hidden>
+  <div class="panel-titulo">
+    <p class="etiqueta">Seguimiento</p>
+    <h2 class="titulo-vista">Evacuación · Detalle por manzana</h2>
+    <p>Confirma el avance y coordina apoyo para cada hogar.</p>
+  </div>
+
+  <div class="pestanas" id="ev-tabs"></div>
+
+  <section class="kpis" aria-label="Resumen de la manzana">
+    <article class="kpi"><span>Hogares</span><strong id="k-hogares">0</strong></article>
+    <article class="kpi"><span>A salvo</span><strong id="k-salvo">0</strong></article>
+    <article class="kpi"><span>En ruta</span><strong id="k-ruta">0</strong></article>
+    <article class="kpi"><span>Con apoyo</span><strong id="k-apoyo">0</strong></article>
+  </section>
+
+  <section class="ev-caja" aria-labelledby="ev-titulo">
+    <h2 id="ev-titulo">Hogares</h2>
+    <div id="ev-lista"></div>
+    <div class="acciones" style="margin-top:1rem">
+      <button type="button" class="boton" id="ev-confirmar">Confirmar evacuación de la manzana</button>
+      <button type="button" class="boton secundario" id="ev-reset">Restablecer datos de ejemplo</button>
+    </div>
+    <p class="mensaje-ev" id="ev-mensaje" aria-live="polite"></p>
+  </section>
+</section>
+        <section class="vista" id="vista-solicitudes" aria-label="Solicitudes de apoyo" hidden>
+  <div class="panel-titulo">
+    <p class="etiqueta">Coordinación en campo</p>
+    <h2 class="titulo-vista">Solicitudes de apoyo</h2>
+    <p>Prioriza las necesidades y asigna una brigada a cada solicitud.</p>
+  </div>
+
+  <div class="sol-layout">
+    <div>
+      <!-- Bandeja de solicitudes; las dibuja el JS. -->
+      <section class="ev-caja" aria-labelledby="sol-h">
+        <h2 id="sol-h">Solicitudes recibidas</h2>
+        <div id="sol-lista"></div>
+      </section>
+
+      <!-- Registrar una solicitud nueva (HU-007, HU-020, HU-044). -->
+      <form class="formulario" id="sol-form" novalidate style="margin-top:1.2rem">
+        <h2>Registrar solicitud de apoyo</h2>
+        <label for="sol-quien">Persona o familia que necesita apoyo</label>
+        <input id="sol-quien" type="text" autocomplete="off">
+        <p class="error" id="error-sol-quien" aria-live="polite"></p>
+        <label for="sol-manz">Manzana</label>
+        <select id="sol-manz"><option>A-01</option><option>A-02</option><option selected>A-03</option><option>A-04</option><option>A-05</option><option>A-06</option></select>
+        <label for="sol-tipo">Tipo de apoyo</label>
+        <select id="sol-tipo"><option>Movilidad reducida</option><option>Requiere transporte</option><option>Menores a cargo</option><option>Adulto mayor</option></select>
+        <label for="sol-prio">Prioridad</label>
+        <select id="sol-prio"><option>Alta</option><option>Normal</option></select>
+        <button type="submit" class="boton">Enviar solicitud</button>
+      </form>
+    </div>
+
+    <aside>
+      <!-- Detalle y asignación de brigada (HU-044, HU-031). -->
+      <section class="ev-caja" aria-labelledby="sol-titulo">
+        <h2 id="sol-titulo">Solicitud</h2>
+        <p id="sol-tipo-det"></p>
+        <label for="sol-brig"><strong>Brigada disponible</strong></label>
+        <select id="sol-brig"></select>
+        <button type="button" class="boton" id="sol-asignar" style="margin-top:.8rem;width:100%">Asignar brigada</button>
+        <p class="mensaje-ev" id="sol-msg" aria-live="polite"></p>
+      </section>
+
+      <!-- Disponibilidad de cada brigadista (HU-030). -->
+      <section class="ev-caja" style="margin-top:1.2rem" aria-labelledby="disp-h">
+        <h2 id="disp-h">Disponibilidad de brigadas</h2>
+        <div id="sol-disp"></div>
+        <button type="button" class="boton secundario chico" id="sol-reset" style="margin-top:1rem">Restablecer datos de ejemplo</button>
+      </section>
+    </aside>
+  </div>
+</section>
+        <section class="vista" id="vista-reportes" aria-label="Reportes e incidencias" hidden>
+  <div class="panel-titulo">
+    <p class="etiqueta">Información ciudadana</p>
+    <h2 class="titulo-vista">Reportes e incidencias</h2>
+    <p>Valida lo que llega del territorio para mantener rutas y zonas actualizadas.</p>
+  </div>
+
+  <div class="sol-layout">
+    <section class="ev-caja" aria-labelledby="inc-h">
+      <h2 id="inc-h">Reportes recibidos</h2>
+      <!-- Filtros para ver todos, pendientes o verificados. -->
+      <div class="pestanas" id="inc-filtros">
+        <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button type="button" data-filtro="Pendiente" aria-pressed="false">Pendientes</button>
+        <button type="button" data-filtro="Verificado" aria-pressed="false">Verificados</button>
+      </div>
+      <!-- El JS dibuja aquí la lista (HU-023 y HU-028). -->
+      <div id="inc-lista"></div>
+      <p class="nota">Ruta alterna sugerida si Paso Norte está bloqueado: Calle Sur hacia Escuela Norte.</p>
+    </section>
+
+    <!-- Formulario para registrar un reporte con validación. -->
+    <form class="formulario" id="inc-form" novalidate>
+      <h2>Registrar reporte</h2>
+      <label for="inc-tipo">Tipo</label>
+      <select id="inc-tipo"><option>Vía bloqueada</option><option>Zona peligrosa</option></select>
+      <label for="inc-manz">Manzana</label>
+      <select id="inc-manz"><option>A-01</option><option>A-02</option><option selected>A-03</option><option>A-04</option><option>A-05</option><option>A-06</option></select>
+      <label for="inc-desc">Descripción</label>
+      <textarea id="inc-desc" rows="3"></textarea>
+      <p class="error" id="error-inc-desc" aria-live="polite"></p>
+      <button type="submit" class="boton">Enviar reporte</button>
+      <button type="button" class="boton secundario chico" id="inc-reset">Restablecer datos de ejemplo</button>
+      <p class="mensaje-ev" id="inc-msg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+        <section class="vista" id="vista-administracion" aria-label="Administración" hidden>
+  <div class="panel-titulo">
+    <p class="etiqueta">Acceso COE</p>
+    <h2 class="titulo-vista">Administración</h2>
+    <p>Gestiona usuarios, líderes, zonas y parámetros de la operación.</p>
+  </div>
+
+  <!-- Si quien entró no es COE, el JS muestra este aviso y oculta el resto. -->
+  <p class="mensaje-ev mal" id="adm-bloqueo" hidden>Esta sección es solo para el COE. Inicia sesión con una cuenta de rol COE.</p>
+
+  <div class="sol-layout" id="adm-contenido">
+    <div>
+      <section class="ev-caja" aria-labelledby="us-h">
+        <h2 id="us-h">Usuarios y roles</h2>
+        <div id="adm-usuarios"></div>
+      </section>
+
+      <!-- Líderes vecinales y su contacto (HU-048). -->
+      <section class="ev-caja" style="margin-top:1.2rem" aria-labelledby="li-h">
+        <h2 id="li-h">Juntas vecinales y líderes</h2>
+        <div id="adm-lideres"></div>
+      </section>
+    </div>
+
+    <!-- Parámetros de operación (HU-004) y contacto de emergencia (HU-025). -->
+    <form class="formulario" id="adm-form" novalidate>
+      <h2>Parámetros de operación</h2>
+      <div class="disp"><label for="cfg-sms">SMS de contingencia cuando no hay internet</label><input id="cfg-sms" type="checkbox"></div>
+      <div class="disp"><label for="cfg-auto">Alertas automáticas por cambio de nivel</label><input id="cfg-auto" type="checkbox"></div>
+      <label for="cfg-tel">Contacto de emergencia (9 dígitos)</label>
+      <input id="cfg-tel" type="text" inputmode="numeric" maxlength="9" autocomplete="off">
+      <p class="error" id="error-cfg-tel" aria-live="polite"></p>
+      <button type="submit" class="boton">Guardar cambios</button>
+      <button type="button" class="boton secundario chico" id="adm-reset">Restablecer datos de ejemplo</button>
+      <p class="mensaje-ev" id="adm-msg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>AlertaQuebrada</strong> · Panel operativo</p>
+    <p>Simulación operativa · Quebrada Norte · Datos ilustrativos</p>
+    <p>© 2026 AlertaQuebrada · <a href="FUENTES.txt">Créditos de recursos</a></p>
+  </div>
+</footer>
+<!-- PASO 8: el JavaScript va al final para que el HTML ya exista cuando se ejecute. -->
+<script src="js/app.js"></script>
+</body>
+</html>

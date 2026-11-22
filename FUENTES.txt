@@ -1,0 +1,9 @@
+FUENTES Y CRÉDITOS
+==================
+Tipografía: Inter, de Rasmus Andersson. Licencia SIL Open Font License 1.1.
+  Cargada desde Google Fonts: https://fonts.google.com/specimen/Inter
+Paleta de colores: definida en el informe del proyecto (sección 4.1.1).
+Logo e íconos: creados por el equipo para este proyecto.
+Estructura base de la página: adaptada de la actividad de clase (proyecto ACME).
+Datos: ficticios, creados para la simulación. No corresponden a personas reales.
+Logo: generado con IA a partir de un prompt del equipo y revisado manualmente.
